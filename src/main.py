@@ -1,5 +1,6 @@
 from pathlib import Path
-from telemetry import load_telemetry
+from .detectors import detect_coolant_overheat
+from .telemetry import load_telemetry
 
 
 def main() -> None:
@@ -10,6 +11,12 @@ def main() -> None:
     print("First 3 samples:")
     for t in telemetry[:3]:
         print(t)
+
+    events = detect_coolant_overheat(telemetry, threshold_c=130.0)
+
+    print(f"Overheat events: {len(events)}")
+    for e in events:
+        print(e)
 
 
 if __name__ == "__main__":
