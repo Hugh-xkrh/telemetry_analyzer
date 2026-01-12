@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 from typing import List
-from .events import Event
-from .telemetry import TelemetryRow
+from ..events import Event
+from ..telemetry import TelemetryRow
 
 
 def detect_coolant_overheat(
